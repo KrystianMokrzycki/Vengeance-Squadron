@@ -1,4 +1,5 @@
 ///korzystany skrypt scr_move() z odpowiednimi paramerami movementu 
+/// nazwy pozmieniac pod te, ktore zostaly uzyte w glownym projekcie
 
 
 if (place_meeting(x+hsp, y , oPush))
