@@ -1,3 +1,6 @@
+///korzystany skrypt scr_move() z odpowiednimi paramerami movementu 
+
+
 if (place_meeting(x+hsp, y , oPush))
 {
 var block = instance_place(x+hsp,y, oPush);
