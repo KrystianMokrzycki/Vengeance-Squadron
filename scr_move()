@@ -1,5 +1,6 @@
 /// arguments: Vertical Speed, Horizontal Speed
-
+/// nazwy pozmieniac pod te, ktore zostaly uzyte w glownym projekcie
+///wywoalc w evencie step bohatera
 
 var hsp = argument[0];
 var vsp = argument [1];
