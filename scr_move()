@@ -1,3 +1,6 @@
+/// arguments: Vertical Speed, Horizontal Speed
+
+
 var hsp = argument[0];
 var vsp = argument [1];
 
