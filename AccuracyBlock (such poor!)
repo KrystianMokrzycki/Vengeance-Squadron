@@ -1,0 +1,9 @@
+if place_meeting (x + sign(x), y , obj_accuracyblock) // obj_accuracyblock - nie wstawilem tego obiektu bo jedyne co wnim robimy to ustwwaimy sprite'a
+{
+
+if (keyboard_check(vk_left)) x -= 15; //wartosci mozna zmienic
+if (keyboard_check(vk_right)) x += 15;// tak samo mozna ze strzalek przejsc na WASD
+
+if (keyboard_check(vk_up)) y -= 15;
+if (keyboard_check(vk_down)) y += 15;
+}
