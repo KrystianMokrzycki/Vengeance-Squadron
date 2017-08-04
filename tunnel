@@ -1,0 +1,22 @@
+if place_meeting(x + playerSpeed, y, obj_tunnel)
+{
+ if(MOVERIGHT)  //nazwy zmiennych zmienic na te uzyte w projekcie
+	{
+x += obj_tunnel.sprite_width;
+	}
+	 if(MOVELEFT)
+	{
+x -= obj_tunnel.sprite_width;
+	}
+}
+if (place_meeting(x,y+playerSpeed,obj_tunnel))
+{
+	if(MOVEUP)
+	{
+	y -= obj_tunnel.sprite_height;
+	}
+	 if(MOVEDOWN)
+	{
+	y += obj_tunnel.sprite_height;
+	}
+}
