@@ -1,0 +1,19 @@
+if (place_meeting(x,y,oHeros))
+{
+	if (myTextBox = noone)
+	{
+		if (keyboard_check(vk_space))
+		{
+myTextBox = instance_create_layer(x,y,"Text",obj_TextBox);// "Text" to utworzona instancja
+myTextBox.text = myText;//zmienianie tekstu
+		}
+	}
+}
+else 
+{
+if (myTextBox != noone)
+{
+instance_destroy(myTextBox);
+myTextBox = noone;
+}
+}
