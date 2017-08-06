@@ -12,27 +12,29 @@
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_light</sprite>
     <sprite>sprites\spr_marine_mask</sprite>
+    <sprite>sprites\spr_Enemy1</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\scr_collision.gml</script>
     <script>scripts\scr_round_LR.gml</script>
     <script>scripts\scr_round_TB.gml</script>
-    <script>scripts\scr_collision.gml</script>
-    <script>scripts\script3.gml</script>
-    <script>scripts\script4.gml</script>
-    <script>scripts\script5.gml</script>
+    <script>scripts\Enemy1_unawareAction.gml</script>
+    <script>scripts\Enemy1_awareOpenAction.gml</script>
+    <script>scripts\Enemy1_awareCoverAction.gml</script>
   </scripts>
   <objects name="objects">
-    <object>objects\obj_marine</object>
-    <object>objects\obj_enemy</object>
     <object>objects\obj_bullet</object>
-    <object>objects\obj_wall</object>
+    <object>objects\obj_control</object>
+    <object>objects\obj_enemy</object>
+    <object>objects\obj_Enemy1</object>
+    <object>objects\obj_grid</object>
     <object>objects\obj_lighting</object>
     <object>objects\obj_lightsource</object>
-    <object>objects\obj_grid</object>
-    <object>objects\obj_Enemy1</object>
-    <object>objects\obj_EnemyBullet</object>
+    <object>objects\obj_marine</object>
+    <object>objects\obj_wall</object>
+    <object>objects\obj_enemybullet</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_spaceship</room>
