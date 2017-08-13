@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_enemy</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -81,34 +81,21 @@ canShoot = true
             <string>switch state 
 {
 case Statetype.unaware:
-    Enemy1_unawareAction();
+    scr_enemy1_unawareAction();
     break;
     
     case Statetype.awareOpen:
-    Enemy1_awareOpenAction();
+    scr_enemy1_awareOpenAction();
     break;
     
     case Statetype.awareCover:
-    Enemy1_awareCoverAction();
+    scr_enemy1_awareCoverAction();
     break;
     
     }
     
-    if(place_meeting(x+speed,y,obj_wall) ) { 
-    while (!place_meeting(x+sign(speed),y,obj_wall)) {
-        x+=sign(speed); 
-    } 
-   speed = 0; 
-}
-
-if(place_meeting(x,y+speed,obj_wall) ) { 
-    while (!place_meeting(x,y+sign(speed),obj_wall)) { 
-        y+=sign(speed); 
-    } 
-   speed = 0; 
+    scr_enemy_collision();
     
-  }
-  
   if(hp=0) {
   instance_destroy();
   }
@@ -134,12 +121,12 @@ if(place_meeting(x,y+speed,obj_wall) ) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (state == Statetype.awareOpen || state == Statetype.awareCover)
-{
+            <string>if (state == Statetype.awareOpen || state == Statetype.awareCover) {
 var rot = point_direction(x, y, obj_marine.x, obj_marine.y);
-draw_sprite_ext(spr_Enemy1, 0, x, y, 1, 1, rot, c_white, 1);
-}
+draw_sprite_ext(spr_Enemy1, 0, x, y, 1, 1, rot, c_white, 1);     }
+
 else
+
 draw_self();
 </string>
           </argument>

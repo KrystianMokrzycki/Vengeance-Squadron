@@ -27,13 +27,21 @@
             <kind>1</kind>
             <string>image_angle = direction;
 
-hit = instance_place(x,y,obj_enemy);
+hit = instance_place(x,y,obj_enemy) 
+hite = instance_place(x,y,obj_Enemy1) 
 
 if (hit!= noone)
 {
 hit.hp -= 1;
 instance_destroy();
 }
+
+if (hite!= noone)
+{
+hite.hp -= 1;
+instance_destroy();
+}
+
 
 if(place_meeting(x,y,obj_wall))
 {

@@ -32,11 +32,8 @@ mouse_direction = point_direction(x, y, mouse_x, mouse_y);
 marine_frame = 0;
 hp = 3;
 weapon = 0;
-
-
 shield=3;
 shieldon = 0;
-
 
 </string>
           </argument>
@@ -85,87 +82,28 @@ shieldon = 0;
             <kind>1</kind>
             <string>//variables
 
-rounding = false
 mouse_direction = point_direction(x, y, mouse_x, mouse_y)
-
-
 r_mb = mouse_check_button(mb_right)
 l_mb = mouse_check_button_pressed(mb_left)
 key_up    = keyboard_check(ord('W'))
 key_left  = keyboard_check(ord('A'))
 key_down  = keyboard_check(ord('S'))
 key_right = keyboard_check(ord('D'))
+key_e = keyboard_check_pressed(ord('E'))
 
-//horizontal movement
-if key_left &amp;&amp; !key_right
-    hsp = -movespeed
-else if !key_left &amp;&amp; key_right
-    hsp =  movespeed
-else if !key_left &amp;&amp; !key_right
-    hsp = 0
-
-//vertical movement
-if key_up &amp;&amp; !key_down
-   vsp = -movespeed
-else if !key_up &amp;&amp; key_down
-    vsp = movespeed
-else if !key_up &amp;&amp; !key_down
-    vsp = 0
-
-if(place_meeting(x+hsp,y,obj_wall) ) { 
-    while (!place_meeting(x+sign(hsp),y,obj_wall)) {
-        x+=sign(hsp); 
-    } 
-    hsp = 0; 
-    
-    if vsp = 0
-    {
-        scr_round_TB();
-        rounding = true;
-    }
-    
-}
-
-if(place_meeting(x,y+vsp,obj_wall) ) { 
-    while (!place_meeting(x,y+sign(vsp),obj_wall)) { 
-        y+=sign(vsp); 
-    } 
-    vsp = 0; 
-    
-    if hsp = 0
-    {
-        scr_round_LR();
-        rounding = true;
-    }
-    
-}
-
-x+=hsp; 
-y+=vsp;
+scr_movement_collision();
 
 if(hp = 0) {
 game_restart();
 }
 
-if (l_mb = true) {
+scr_player_shooting();
 
-with(instance_create(x + lengthdir_x(40, mouse_direction), y + lengthdir_y(40, mouse_direction), obj_bullet))
-   {
-   speed = 10;
-   direction = point_direction(x, y, mouse_x, mouse_y);
-   image_angle = direction;
-   }
-
-}
-
-if(alarm[0]=-1) { 
+if(shield = 0 &amp;&amp; alarm[0]=-1) { 
 alarm = 120;
 }
 
- 
-    
-    
-    
+
     
 </string>
           </argument>
@@ -277,12 +215,53 @@ if(obj_marine.r_mb &amp;&amp; obj_marine.shield &gt; 0 ) {
 draw_sprite_ext(spr_marine_mask,marine_frame,x,y,1,1,mouse_direction,c_white,1);
 obj_marine.shieldon=1;
 }
+
 else { 
 draw_sprite_ext(spr_marine,marine_frame,x,y,1,1,mouse_direction,c_white,1);
 obj_marine.shieldon=0;
 }
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="69">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>sprite_index = spr_marine_attack; 
+
+if (image_index &gt;= 1) &amp;&amp; (image_index &lt;= 3) { 
+
+with ( instance_create(x,y,obj_hitbox_marineattack) ) {
+
+direction = point_direction(x, y, mouse_x, mouse_y);
+image_angle = direction;
+
+with (instance_place (x,y,obj_Enemy1) ) {
+
+hp -= 2;
+
+}
+
+}
+
+}
 </string>
           </argument>
         </arguments>
