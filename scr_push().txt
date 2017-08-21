@@ -8,17 +8,17 @@ if (place_meeting(x+hsp, y , oPush))
 var block = instance_place(x+hsp,y, oPush);
 	with(block)
 	{
-	scr_move(oHero.hsp/2, 0);
+	scr_move(obj_marine.hsp/2, 0);
 	}
 	hsp /= 2;
 }
 
-if (place_meeting(x, y + vsp , oPush))
+if (place_meeting(x, y + vsp , oPush)) 
 {
 var block1 = instance_place(x,y + vsp, oPush);
 	with(block1)
 	{
-	scr_move(0,oHero.vsp/2);
+	scr_move(0, obj_marine.vsp/2);
 	}
 	vsp /= 2;
 }
